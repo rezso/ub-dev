@@ -12,6 +12,7 @@ libmikmod-dev
 libmodplug-dev
 libsamplerate-dev
 libvorbis-dev
+mp4v2-dev
 musepack-dev
 ncurses-dev
 opusfile-dev
