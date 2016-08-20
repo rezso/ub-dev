@@ -1,7 +1,7 @@
 diff -Naur orig/src-qt5/core/lumina-desktop/lumina-desktop.pro patched/src-qt5/core/lumina-desktop/lumina-desktop.pro
---- orig/src-qt5/core/lumina-desktop/lumina-desktop.pro	2016-05-03 18:03:16.000000000 +0200
-+++ patched/src-qt5/core/lumina-desktop/lumina-desktop.pro	2016-06-18 02:11:16.942338085 +0200
-@@ -75,7 +75,7 @@
+--- orig/src-qt5/core/lumina-desktop/lumina-desktop.pro	2016-08-08 15:22:36.000000000 +0200
++++ patched/src-qt5/core/lumina-desktop/lumina-desktop.pro	2016-08-10 23:56:58.484319228 +0200
+@@ -78,7 +78,7 @@
  			wallpapers/Lumina_Wispy_blue-grey-zoom.jpg \
  			wallpapers/Lumina_Wispy_grey-blue.jpg \
  			wallpapers/Lumina_Wispy_grey-blue-zoom.jpg 
@@ -10,33 +10,33 @@ diff -Naur orig/src-qt5/core/lumina-desktop/lumina-desktop.pro patched/src-qt5/c
  
  
  defaults.files = defaults/luminaDesktop.conf \
-diff -Naur orig/src-qt5/core-utils/lumina-config/mainUI.cpp patched/src-qt5/core-utils/lumina-config/mainUI.cpp
---- orig/src-qt5/core-utils/lumina-config/mainUI.cpp	2016-05-03 18:03:16.000000000 +0200
-+++ patched/src-qt5/core-utils/lumina-config/mainUI.cpp	2016-06-18 02:11:16.946338147 +0200
-@@ -710,7 +710,7 @@
+diff -Naur orig/src-qt5/core-utils/lumina-config/pages/page_wallpaper.cpp patched/src-qt5/core-utils/lumina-config/pages/page_wallpaper.cpp
+--- orig/src-qt5/core-utils/lumina-config/pages/page_wallpaper.cpp	2016-08-08 15:22:36.000000000 +0200
++++ patched/src-qt5/core-utils/lumina-config/pages/page_wallpaper.cpp	2016-08-10 23:58:11.033378920 +0200
+@@ -193,7 +193,7 @@
  
- void MainUI::deskbgadded(){
+ void page_wallpaper::deskbgadded(){
    //Prompt the user to find an image file to use for a background
--  QString dir = LOS::LuminaShare().section("/Lumina-DE",0,0)+"/wallpapers/Lumina-DE";
-+  QString dir = LOS::LuminaShare().section("/Lumina-DE",0,0)+"/backgrounds/Lumina-DE";
+-  QString dir = LOS::LuminaShare().section("/lumina-desktop",0,0)+"/wallpapers/Lumina-DE";
++  QString dir = LOS::LuminaShare().section("/lumina-desktop",0,0)+"/backgrounds/Lumina-DE";
    qDebug() << "Looking for wallpaper dir:" << dir;
    if( !QFile::exists(dir) ){ dir = QDir::homePath(); }
    QStringList imgs = LUtils::imageExtensions();
-@@ -745,7 +745,7 @@
+@@ -226,7 +226,7 @@
  
- void MainUI::deskbgdiradded(){
+ void page_wallpaper::deskbgdiradded(){
    //Add the files from a single directory
-- QString dir = LOS::LuminaShare().section("/Lumina-DE",0,0)+"/wallpapers/Lumina-DE";
-+ QString dir = LOS::LuminaShare().section("/Lumina-DE",0,0)+"/backgrounds/Lumina-DE";
+- QString dir = LOS::LuminaShare().section("/lumina-desktop",0,0)+"/wallpapers/Lumina-DE";
++ QString dir = LOS::LuminaShare().section("/lumina-desktop",0,0)+"/backgrounds/Lumina-DE";
    qDebug() << "Looking for wallpaper dir:" << dir;
    if( !QFile::exists(dir) ){ dir = QDir::homePath(); }
    dir = QFileDialog::getExistingDirectory(this, tr("Find Background Image Directory"), dir, QFileDialog::ReadOnly);
-@@ -771,7 +771,7 @@
+@@ -251,7 +251,7 @@
  
- void MainUI::deskbgdirradded(){
+ void page_wallpaper::deskbgdirradded(){
    //Recursively add files from a directory
-- QString dir = LOS::LuminaShare().section("/Lumina-DE",0,0)+"/wallpapers/Lumina-DE";
-+ QString dir = LOS::LuminaShare().section("/Lumina-DE",0,0)+"/backgrounds/Lumina-DE";
+- QString dir = LOS::LuminaShare().section("/lumina-desktop",0,0)+"/wallpapers/Lumina-DE";
++ QString dir = LOS::LuminaShare().section("/lumina-desktop",0,0)+"/backgrounds/Lumina-DE";
    qDebug() << "Looking for wallpaper dir:" << dir;
    if( !QFile::exists(dir) ){ dir = QDir::homePath(); }
    dir = QFileDialog::getExistingDirectory(this, tr("Find Background Image Directory"), dir, QFileDialog::ReadOnly);

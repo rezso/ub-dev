@@ -1,4 +1,5 @@
 libxcomposite-dev
+lsb-release
 pulseaudio-dev
 qt5-dev
 xcb-util-image-dev
