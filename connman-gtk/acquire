@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+connman-gtk-${UB_VERSION}.tar.gz connman-gtk-${UB_VERSION}/
+	https://github.com/jgke/connman-gtk/archive/v${UB_VERSION}.tar.gz
