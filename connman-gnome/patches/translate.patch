@@ -1,0 +1,198 @@
+diff -Naur orig/configure.ac patched/configure.ac
+--- orig/configure.ac	2012-06-14 19:12:48.000000000 +0200
++++ patched/configure.ac	2014-10-24 21:01:49.905173511 +0200
+@@ -22,7 +22,7 @@
+ AC_PROG_INSTALL
+ AC_PROG_RANLIB
+ 
+-GETTEXT_PACKAGE=connman
++GETTEXT_PACKAGE=connman-gnome
+ AC_SUBST(GETTEXT_PACKAGE)
+ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE",
+ 					[The name of the gettext domain])
+diff -Naur orig/po/hu.po patched/po/hu.po
+--- orig/po/hu.po	1970-01-01 01:00:00.000000000 +0100
++++ patched/po/hu.po	2014-10-24 20:47:06.000000000 +0200
+@@ -0,0 +1,176 @@
++# SOME DESCRIPTIVE TITLE.
++# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
++# This file is distributed under the same license as the PACKAGE package.
++# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
++#
++msgid ""
++msgstr ""
++"Project-Id-Version: connman-gnome\n"
++"Report-Msgid-Bugs-To: \n"
++"POT-Creation-Date: 2014-10-24 19:52+0200\n"
++"PO-Revision-Date: 2014-10-24 20:47+0100\n"
++"Last-Translator: rezso <rezso@rezso.net>\n"
++"Language-Team:  <LL@li.org>\n"
++"Language: hu\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"X-Generator: Poedit 1.6.5\n"
++"Plural-Forms: nplurals=2; plural=(n != 1);\n"
++
++#: ../applet/agent.c:124 ../applet/main.c:261
++#: ../applet/connman-applet.desktop.in.h:1
++msgid "Connection Manager"
++msgstr "Csatlakozás kezelő"
++
++#: ../applet/agent.c:144
++msgid "Please provide some network information:"
++msgstr "Hálózati információk megadása:"
++
++#: ../applet/main.c:212
++msgid "A connection manager for the GNOME desktop"
++msgstr "Csatlakozás kezelő GNOME-hoz/MATE-hoz"
++
++#: ../applet/main.c:214
++msgid "translator-credits"
++msgstr "Páder Rezső <rezso@rezso.net>"
++
++#: ../applet/connman-applet.desktop.in.h:2
++msgid "Connection Manager applet"
++msgstr "Csatlakozás kezelő applet"
++
++#: ../properties/main.c:63 ../properties/main.c:85
++msgid "connection failed"
++msgstr "a csatlakozás nem sikerült."
++
++#: ../properties/main.c:103 ../properties/main.c:110 ../properties/main.c:120
++#: ../properties/cellular.c:101 ../properties/ethernet.c:101
++#: ../properties/wifi.c:144
++msgid "Disable"
++msgstr "Letiltás"
++
++#: ../properties/main.c:105 ../properties/main.c:113 ../properties/main.c:122
++#: ../properties/cellular.c:103 ../properties/ethernet.c:103
++#: ../properties/wifi.c:146
++msgid "Enable"
++msgstr "Engedélyezés"
++
++#: ../properties/main.c:127 ../properties/main.c:176
++msgid "OnlineMode"
++msgstr "OnlineMode"
++
++#: ../properties/main.c:129 ../properties/main.c:178
++msgid "OfflineMode"
++msgstr "OfflineMode"
++
++#: ../properties/main.c:162 ../properties/main.c:366
++msgid "System Configuration"
++msgstr "Rendszerbeállítás"
++
++#: ../properties/main.c:327
++msgid "Ethernet"
++msgstr "Ethernet"
++
++#: ../properties/main.c:335
++msgid "associating..."
++msgstr "összekapcsolás..."
++
++#: ../properties/main.c:337
++msgid "configuring..."
++msgstr "beállítás..."
++
++#: ../properties/main.c:340
++msgid "connected"
++msgstr "kapcsolódva"
++
++#: ../properties/main.c:346
++msgid "WiMAX"
++msgstr "WiMAX"
++
++#: ../properties/main.c:350
++msgid "Bluetooth"
++msgstr "Bluetooth"
++
++#: ../properties/main.c:354
++msgid "Wired Networks"
++msgstr "Vezetékes hálózatok"
++
++#: ../properties/main.c:358
++msgid "Wireless Networks"
++msgstr "Vezeték nélküli hálózatok"
++
++#: ../properties/main.c:362
++msgid "Cellular Networks"
++msgstr "Mobil hálózatok"
++
++#: ../properties/main.c:370
++msgid "Unknown"
++msgstr "Ismeretlen"
++
++#: ../properties/main.c:508
++msgid "Connection Preferences"
++msgstr "Csatlakozás beállításai"
++
++#: ../properties/main.c:533
++msgid "Services"
++msgstr "Szolgáltatások"
++
++#: ../properties/cellular.c:90
++msgid "Configure Cellular Networks."
++msgstr "Mobil hálózatok beállítása"
++
++#: ../properties/cellular.c:138 ../properties/wifi.c:271
++msgid "Access Point:"
++msgstr "Access Point:"
++
++#: ../properties/cellular.c:153 ../properties/wifi.c:295
++msgid "Connect"
++msgstr "Kapcsolódás"
++
++#: ../properties/cellular.c:160 ../properties/wifi.c:302
++msgid "Disconnect"
++msgstr "Bontás"
++
++#: ../properties/ethernet.c:90
++msgid "Enable/Disable Wired Networks."
++msgstr "Vezetékes hálózatok engedélyezése/tiltása"
++
++#: ../properties/ethernet.c:144 ../properties/wifi.c:184
++msgid "Configuration:"
++msgstr "Beállítás:"
++
++#: ../properties/ethernet.c:155 ../properties/wifi.c:197
++msgid "IP address:"
++msgstr "IP cím:"
++
++#: ../properties/ethernet.c:166 ../properties/wifi.c:209
++msgid "Netmask:"
++msgstr "Netmask:"
++
++#: ../properties/ethernet.c:177 ../properties/wifi.c:220
++msgid "Gateway:"
++msgstr "Gateway:"
++
++#: ../properties/ethernet.c:190
++msgid "Apply"
++msgstr "Alkalmaz"
++
++#: ../properties/wifi.c:133
++msgid "Configure Wifi Networks."
++msgstr "Wifi hálózatok beállítása"
++
++#: ../properties/wifi.c:152
++msgid "Scan"
++msgstr "Keresés"
++
++#: ../properties/wifi.c:280
++msgid "Security:"
++msgstr "Biztonság:"
++
++#: ../properties/connman-properties.desktop.in.h:1
++msgid "Connection Management"
++msgstr "Csatlakozás kezelés"
++
++#: ../properties/connman-properties.desktop.in.h:2
++msgid "Configure connection management"
++msgstr "Csatlakozás kezelés beállítása"
+diff -Naur orig/po/LINGUAS patched/po/LINGUAS
+--- orig/po/LINGUAS	2012-06-14 19:12:48.000000000 +0200
++++ patched/po/LINGUAS	2014-10-24 19:53:00.420696503 +0200
+@@ -0,0 +1 @@
++hu
+\ No newline at end of file

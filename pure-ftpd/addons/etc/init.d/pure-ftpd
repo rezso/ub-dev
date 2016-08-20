@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/pure-config.pl /etc/pure-ftpd.conf
+PIDFILE="/var/lock/pure-ftpd.pid"
+
+startstop "$@"

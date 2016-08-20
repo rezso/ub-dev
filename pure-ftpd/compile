@@ -1,0 +1,19 @@
+#!/bin/sh -eux
+
+# TODO: --with-ldap, --with-mysql, --with-pgsql
+
+# ezekhez nincs configure opció
+export CPPFLAGS="-DANON_CAN_DELETE -DANON_CAN_CHANGE_PERMS -DANON_CAN_RENAME -DANON_CAN_RESUME -DALWAYS_RESOLVE_IDS"
+
+# --with-everything: --with-altlog --with-cookie --with-diraliases --with-extauth
+# --with-ftpwho --with-peruserlimits --with-quotas --with-ratios --with-throttling
+# --with-uploadscript --with-virtualhosts --with-puredb
+ub_compile \
+	--without-inetd \
+	--with-everything \
+	--with-language=hungarian \
+	--with-pam \
+	--with-rfc2640 \
+	--with-tls \
+	--with-virtualchroot \
+	--with-welcomemsg

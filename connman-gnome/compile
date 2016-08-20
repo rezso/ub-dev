@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+autoreconf -vif
+intltoolize --automake --copy --force
+
+ub_compile

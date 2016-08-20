@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+connman-gnome-${UB_VERSION}.tar.gz connman-gnome-${UB_VERSION}/
+	https://github.com/connectivity/connman-gnome/archive/${UB_VERSION}.tar.gz

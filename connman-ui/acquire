@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+connman-ui-${UB_VERSION}.tar.gz connman-ui-fce0af9/
+	git://github.com/tbursztyka/connman-ui.git@fce0af9

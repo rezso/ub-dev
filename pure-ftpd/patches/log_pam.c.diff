@@ -1,0 +1,47 @@
+--- pure-ftpd-1.0.36.orig/src/log_pam.c
++++ pure-ftpd-1.0.36/src/log_pam.c
+@@ -154,7 +154,11 @@
+     int pam_error;
+     struct passwd pw, *pw_;
+     char *dir = NULL;
+-    
++#ifdef PAM_RHOST    
++    struct hostent *hent;
++    const char *host;
++#endif
++
+     (void) sa;
+     (void) peer;
+     result->auth_ok = 0;
+@@ -163,6 +167,31 @@
+     pam_error = pam_start(FTPD_PAM_SERVICE_NAME, user,
+                           &PAM_conversation, &pamh);
+     PAM_BAIL;
++
++    /* set PAM_RUSER and PAM_RHOST for modules like pam_env or pam_access */
++#ifdef PAM_RHOST
++    logfile(LOG_INFO, "PAM_RHOST enabled. Getting the peer address");
++    switch (STORAGE_FAMILY(*peer)) {
++      case AF_INET:
++        hent = gethostbyaddr(&STORAGE_SIN_ADDR(*peer), sizeof(STORAGE_SIN_ADDR(*peer)), AF_INET);
++	break;
++	
++      case AF_INET6:
++        hent = gethostbyaddr(&STORAGE_SIN_ADDR6(*peer), sizeof(STORAGE_SIN_ADDR6(*peer)), AF_INET6);
++	break;
++    }
++    
++    if (!hent)
++      (void)pam_set_item(pamh, PAM_RHOST, NULL);
++    else
++      (void)pam_set_item(pamh, PAM_RHOST, hent->h_name);
++#endif
++
++
++#ifdef PAM_RUSER
++    (void)pam_set_item(pamh, PAM_RUSER, user);
++#endif
++
+ # ifdef PAM_TTY
+     (void) pam_set_item(pamh, PAM_TTY, "pure-ftpd");
+ # endif

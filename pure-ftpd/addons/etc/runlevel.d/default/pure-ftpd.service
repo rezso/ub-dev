@@ -1,0 +1,11 @@
+Summary=Pure-FTPD FTP Server
+Summary[hu]=Pure-FTPD FTP-szerver
+Description=Enables FTP connections to this machine. It's recommended to consult the documentation (/usr/share/doc/Packages/pure-ftpd) and craete an /etc/pure-ftpd.conf configuration file before activating this service.
+Description[hu]=FTP kapcsolatok fogadását teszi lehetővé. Indítása előtt ajánlott a dokumentáció (/usr/share/doc/Packages/pure-ftpd) alapján egy megfelelő /etc/pure-ftpd.conf konfigurációs fájl elkészítése.
+MsgDesc=FTP Server
+MsgDesc[hu]=FTP-szerver
+Script=/etc/init.d/pure-ftpd
+SupportsReload=yes
+Runlevels=
+Sequence=20
+Resources=tcp/ftp

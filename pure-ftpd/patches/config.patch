@@ -1,0 +1,54 @@
+diff -Naur orig/configuration-file/pure-ftpd.conf.in patched/configuration-file/pure-ftpd.conf.in
+--- orig/configuration-file/pure-ftpd.conf.in	2012-03-16 02:01:37.000000000 +0100
++++ patched/configuration-file/pure-ftpd.conf.in	2013-09-21 23:01:26.640018904 +0200
+@@ -134,13 +134,13 @@
+ 
+ # If you want to enable PAM authentication, uncomment the following line
+ 
+-# PAMAuthentication             yes
++PAMAuthentication             yes
+ 
+ 
+ 
+ # If you want simple Unix (/etc/passwd) authentication, uncomment this
+ 
+-# UnixAuthentication            yes
++UnixAuthentication            yes
+ 
+ 
+ 
+@@ -237,7 +237,7 @@
+ 
+ # Minimum UID for an authenticated user to log in.
+ 
+-MinUID                      100
++MinUID                      1000
+ 
+ 
+ 
+@@ -301,7 +301,7 @@
+ # fw.c9x.org - jedi [13/Dec/1975:19:36:39] "GET /ftp/linux.tar.bz2" 200 21809338
+ # This log file can then be processed by www traffic analyzers.
+ 
+-# AltLog                     clf:/var/log/pureftpd.log
++AltLog                     clf:/var/log/pureftpd.log
+ 
+ 
+ 
+@@ -367,7 +367,7 @@
+ # the log files. When the partition is more that X percent full,
+ # new uploads are disallowed.
+ 
+-MaxDiskUsage               99
++MaxDiskUsage               80
+ 
+ 
+ 
+@@ -447,5 +447,5 @@
+ # for remote clients if they don't use UTF-8.
+ # Works only if pure-ftpd has been compiled with --with-rfc2640
+ 
+-# FileSystemCharset	big5
+-# ClientCharset		big5
++# FileSystemCharset	UTF-8
++# ClientCharset		UTF-8

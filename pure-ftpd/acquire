@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+pure-ftpd-${UB_VERSION}.tar.bz2 pure-ftpd-${UB_VERSION}/
+	ftp://ftp.pureftpd.org/pub/pure-ftpd/releases/
+	http://download.pureftpd.org/pub/pure-ftpd/releases/

@@ -1,0 +1,7 @@
+dbus-dev
+glib-dev
+gnutls-dev
+iptables-dev
+openvpn
+ppp-dev
+wpasupplicant
