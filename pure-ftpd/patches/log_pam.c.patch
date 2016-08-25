@@ -1,10 +1,10 @@
---- pure-ftpd-1.0.36.orig/src/log_pam.c
-+++ pure-ftpd-1.0.36/src/log_pam.c
-@@ -154,7 +154,11 @@
-     int pam_error;
+diff -Naur orig/src/log_pam.c patched/src/log_pam.c
+--- orig/src/log_pam.c	2015-02-17 19:12:45.000000000 +0100
++++ patched/src/log_pam.c	2016-08-25 23:52:12.237311559 +0200
+@@ -155,6 +155,11 @@
      struct passwd pw, *pw_;
      char *dir = NULL;
--    
+ 
 +#ifdef PAM_RHOST    
 +    struct hostent *hent;
 +    const char *host;
@@ -13,7 +13,7 @@
      (void) sa;
      (void) peer;
      result->auth_ok = 0;
-@@ -163,6 +167,31 @@
+@@ -163,6 +168,30 @@
      pam_error = pam_start(FTPD_PAM_SERVICE_NAME, user,
                            &PAM_conversation, &pamh);
      PAM_BAIL;
@@ -36,7 +36,6 @@
 +    else
 +      (void)pam_set_item(pamh, PAM_RHOST, hent->h_name);
 +#endif
-+
 +
 +#ifdef PAM_RUSER
 +    (void)pam_set_item(pamh, PAM_RUSER, user);
