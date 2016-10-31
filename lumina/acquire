@@ -1,10 +1,10 @@
 #!/usr/bin/env dl
 
-v${UB_VERSION}-Release.tar.gz lumina-${UB_VERSION}-Release/
+v${UB_VERSION}.tar.gz lumina-${UB_VERSION}/
 	https://github.com/trueos/lumina/archive/
 
-lumina-i18n.tar.gz lumina-i18n-${UB_VERSION}-Release/ :lumina-i18n
-	https://github.com/trueos/lumina-i18n/archive/v${UB_VERSION}-Release.tar.gz
-	
-#lumina-i18n.tar.gz lumina-i18n-f76e946/ :lumina-i18n
-#	git://github.com/trueos/lumina-i18n.git@f76e946
+#lumina-i18n.tar.gz lumina-i18n-${UB_VERSION}-Release/ :lumina-i18n
+#	https://github.com/trueos/lumina-i18n/archive/v${UB_VERSION}-Release.tar.gz
+
+lumina-i18n.tar.gz lumina-i18n-d700dea/ :lumina-i18n
+	git://github.com/trueos/lumina-i18n.git@d700dea

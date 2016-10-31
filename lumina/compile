@@ -27,7 +27,7 @@ if [ $lng != "hi" ]; then
 fi
 done
 
-qmake-qt5 \
+qmake \
 	PREFIX="/usr" \
 	INSTALL_ROOT="$UB_INSTALLDIR" \
 	QMAKE_LFLAGS="-Wl,--as-needed" \

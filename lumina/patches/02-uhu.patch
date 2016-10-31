@@ -1,6 +1,6 @@
 diff -Naur orig/src-qt5/core/libLumina/LuminaOS-UHU-Linux.cpp patched/src-qt5/core/libLumina/LuminaOS-UHU-Linux.cpp
 --- orig/src-qt5/core/libLumina/LuminaOS-UHU-Linux.cpp	1970-01-01 01:00:00.000000000 +0100
-+++ patched/src-qt5/core/libLumina/LuminaOS-UHU-Linux.cpp	2016-08-20 12:17:10.926378337 +0200
++++ patched/src-qt5/core/libLumina/LuminaOS-UHU-Linux.cpp	2016-10-23 20:19:52.947571224 +0200
 @@ -0,0 +1,284 @@
 +//===========================================
 +//  Lumina-DE source code
@@ -17,7 +17,7 @@ diff -Naur orig/src-qt5/core/libLumina/LuminaOS-UHU-Linux.cpp patched/src-qt5/co
 +//can't read xbrightness settings - assume invalid until set
 +static int screenbrightness = -1;
 +
-+QString LOS::OSName(){ return "Linux"; }
++QString LOS::OSName(){ return "UHU-Linux"; }
 +
 +//OS-specific prefix(s)
 +// NOTE: PREFIX, L_ETCDIR, L_SHAREDIR are defined in the OS-detect.pri project file and passed in
@@ -29,7 +29,7 @@ diff -Naur orig/src-qt5/core/libLumina/LuminaOS-UHU-Linux.cpp patched/src-qt5/co
 +QString LOS::ControlPanelShortcut(){ return ""; } //system control panel
 +QString LOS::AppStoreShortcut(){ return LOS::SysPrefix() + "share/applications/synaptic.desktop"; } //graphical app/pkg manager
 +//OS-specific RSS feeds (Format: QStringList[ <name>::::<url> ]; )
-+QStringList LOS::RSSFeeds(){ return QStringList(); } 
++QStringList LOS::RSSFeeds(){ return QStringList(); }
 +
 +// ==== ExternalDevicePaths() ====
 +QStringList LOS::ExternalDevicePaths(){
@@ -286,3 +286,16 @@ diff -Naur orig/src-qt5/core/libLumina/LuminaOS-UHU-Linux.cpp patched/src-qt5/co
 +}
 +
 +#endif
+diff -Naur orig/src-qt5/OS-detect.pri patched/src-qt5/OS-detect.pri
+--- orig/src-qt5/OS-detect.pri	2016-10-21 16:48:55.000000000 +0200
++++ patched/src-qt5/OS-detect.pri	2016-10-23 20:11:13.102990341 +0200
+@@ -72,6 +72,9 @@
+     #Apply any special rules for particular distros
+     equals(LINUX_DISTRO,"Fedora"){
+       isEmpty(L_ETCDIR){ L_ETCDIR=/etc }
++	}
++    equals(LINUX_DISTRO,"UHU-Linux"){
++      isEmpty(L_ETCDIR){ L_ETCDIR=/etc }
+     }
+   }else{
+     OS="Unknown";
