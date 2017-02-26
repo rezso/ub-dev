@@ -1,0 +1,5 @@
+	/usr/include/kpathsea
+	/usr/lib/kpathsea
+	/usr/lib/libkpathsea.la
+@	/usr/lib/libkpathsea.so
+	/usr/lib/pkgconfig/kpathsea.pc

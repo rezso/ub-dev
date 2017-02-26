@@ -1,0 +1,11 @@
+#!/usr/bin/env dl
+
+texlive-${UB_VERSION}-source.tar.xz texlive-${UB_VERSION}-source/
+	ftp://tug.org/historic/systems/texlive/${UB_VERSION:0:4}/
+
+texlive-20150523-texmf.tar.xz texlive-20150523-texmf/
+	ftp://tug.org/historic/systems/texlive/${UB_VERSION:0:4}/
+
+# tlpkg
+texlive-20150523-extra.tar.xz texlive-20150523-extra/ :extra	
+	ftp://tug.org/historic/systems/texlive/${UB_VERSION:0:4}/

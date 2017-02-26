@@ -1,0 +1,60 @@
+#!/bin/sh -eux
+
+cd build
+
+ub_install
+
+# documentation too big, ~ 1.5 GB
+if [ -d "$UB_INSTALLDIR"/usr/share/texmf-dist/doc ]; then
+	rm -Rf "$UB_INSTALLDIR"/usr/share/texmf-dist/doc
+fi
+
+# install tlpkg
+cp -r "$UB_COMPILEDIR"/extra/tlpkg "$UB_INSTALLDIR"/usr/share/
+
+# install missing perl module
+cp "$UB_COMPILEDIR"/texmf-dist/scripts/texlive/mktexlsr.pl \
+	"$UB_INSTALLDIR"/usr/share/texmf-dist/scripts/texlive/mktexlsr.pl
+
+# openmpi
+rm -f "$UB_INSTALLDIR"/usr/bin/otfinfo
+
+# latexmk
+rm -f "$UB_INSTALLDIR"/usr/bin/latexmk
+rm -Rf "$UB_INSTALLDIR"/usr/share/texmf-dist/scripts/latexmk
+
+## symlink engines by hand
+mkdir -p "$UB_INSTALLDIR"/usr/bin
+ln -s eptex "$UB_INSTALLDIR"/usr/bin/platex
+ln -s euptex "$UB_INSTALLDIR"/usr/bin/uplatex
+ln -s luatex "$UB_INSTALLDIR"/usr/bin/dvilualatex
+ln -s luatex "$UB_INSTALLDIR"/usr/bin/dviluatex
+ln -s luatex "$UB_INSTALLDIR"/usr/bin/lualatex
+ln -s luatex "$UB_INSTALLDIR"/usr/bin/lualollipop
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/amstex
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/cslatex
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/csplain
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/eplain
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/etex
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/jadetex
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/latex
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/lollipop
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/mex
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/mllatex
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/mltex
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/pdfetex
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/pdfcslatex
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/pdfcsplain
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/pdfjadetex
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/pdflatex
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/pdfmex
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/pdfxmltex
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/texsis
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/utf8mex
+ln -s pdftex "$UB_INSTALLDIR"/usr/bin/xmltex
+ln -s xetex "$UB_INSTALLDIR"/usr/bin/xelatex
+ln -s xetex "$UB_INSTALLDIR"/usr/bin/xelollipop
+
+# remove dangling symlinks
+symlinks -d "$UB_INSTALLDIR"/usr/bin
+
