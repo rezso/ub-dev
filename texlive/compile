@@ -4,7 +4,7 @@
 sed -i s/SELFAUTOPARENT/TEXMFROOT/ texk/tex4htk/t4ht.c
 ## prevent compiling Xdvi with libXp
 sed -i~ 's|-lXp ||' texk/xdvik/configure
-   
+
 mkdir build
 cd build
 
@@ -41,4 +41,3 @@ UB_CONFIGURE_DIR=../ ub_configure \
     --with-clisp-runtime=default
 
 ub_make
-

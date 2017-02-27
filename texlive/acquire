@@ -7,5 +7,5 @@ texlive-20150523-texmf.tar.xz texlive-20150523-texmf/
 	ftp://tug.org/historic/systems/texlive/${UB_VERSION:0:4}/
 
 # tlpkg
-texlive-20150523-extra.tar.xz texlive-20150523-extra/ :extra	
+texlive-20150523-extra.tar.xz texlive-20150523-extra/ :extra
 	ftp://tug.org/historic/systems/texlive/${UB_VERSION:0:4}/

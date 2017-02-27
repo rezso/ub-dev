@@ -57,4 +57,3 @@ ln -s xetex "$UB_INSTALLDIR"/usr/bin/xelollipop
 
 # remove dangling symlinks
 symlinks -d "$UB_INSTALLDIR"/usr/bin
-
